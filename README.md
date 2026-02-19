@@ -1,139 +1,173 @@
+🌾 Farm Goods Marketplace – Streamlit Application
+📌 Project Overview
 
-# 🌾 Farm Goods Marketplace -- Streamlit Web Application
+Farm Goods Marketplace is a web-based application built using Python and Streamlit that allows users to buy farm products online. The system includes user authentication, product management, order processing, and email notifications.
 
-## 📌 Overview
+The application uses SQLite as the backend database and provides separate interfaces for Admin and User roles.
 
-Farm Goods Marketplace is a Python-based web application built using
-Streamlit.\
-It allows users to browse and order farm products online, while
-administrators can manage products and monitor orders.
+🚀 Features
+👤 User Features
 
-The application uses SQLite as the database and includes email
-notifications for order confirmations.
+User Registration & Login
 
-------------------------------------------------------------------------
+Browse available farm products
 
-## 🚀 Features
+Place orders
 
-### 👤 User Features
+Receive email confirmation after order placement
 
--   User Registration & Login
--   Browse available farm products
--   Place orders
--   Receive order confirmation via email
+🛠 Admin Features
 
-### 🛠 Admin Features
+Admin login
 
--   Admin login
--   Add new products
--   View all customer orders
--   Receive email notification for new orders
+Add and manage products
 
-------------------------------------------------------------------------
+View all orders
 
-## 🗄 Database Structure
+Receive email notifications for new orders
 
-The application automatically creates a SQLite database named:
+📦 Product Management
 
-farm_goods.db
+Add product name
 
-### Tables:
+Set price and available quantity
 
-### 1️⃣ Users
+Define quality and shelf life
 
-  Column     Type   Description
-  ---------- ------ ---------------
-  username   TEXT   Primary Key
-  password   TEXT   User Password
-  role       TEXT   Admin/User
+Store product image
 
-### 2️⃣ Products
+Track date of produce
 
-  Column            Type
-  ----------------- --------------------
-  product_name      TEXT (Primary Key)
-  price             REAL
-  available         INTEGER
-  quality           TEXT
-  date_of_produce   DATE
-  shelf_life        INTEGER
-  image             BLOB
+📧 Email Notification System
 
-### 3️⃣ Orders
+Admin receives email when a new order is placed
 
-  Column         Type
-  -------------- --------------------------
-  id             INTEGER (Auto Increment)
-  username       TEXT
-  product_name   TEXT
-  quantity       INTEGER
-  mobile         TEXT
-  address        TEXT
-  email          TEXT
-  status         TEXT (Default: Pending)
+User receives order confirmation email
 
-------------------------------------------------------------------------
+🗂 Database Structure
 
-## 🛠 Technologies Used
+The application uses SQLite database (farm_goods.db) with the following tables:
 
--   Python
--   Streamlit
--   SQLite3
--   Pandas
--   SMTP (Email Sending)
--   MIMEText
+1️⃣ Users Table
+Column	Type
+username	TEXT (Primary Key)
+password	TEXT
+role	TEXT (Admin/User)
+2️⃣ Products Table
+Column	Type
+product_name	TEXT (Primary Key)
+price	REAL
+available	INTEGER
+quality	TEXT
+date_of_produce	DATE
+shelf_life	INTEGER
+image	BLOB
+3️⃣ Orders Table
+Column	Type
+id	INTEGER (Auto Increment)
+username	TEXT
+product_name	TEXT
+quantity	INTEGER
+mobile	TEXT
+address	TEXT
+email	TEXT
+status	TEXT (Default: Pending)
+🛠 Technologies Used
 
-------------------------------------------------------------------------
+Python
 
-## ⚙ Installation Guide
+Streamlit
 
-### 1️⃣ Install Required Packages
+SQLite3
 
+Pandas
+
+SMTP (Email Service)
+
+MIMEText (Email formatting)
+
+⚙ Installation & Setup
+Step 1: Install Required Packages
 pip install streamlit pandas
 
-### 2️⃣ Configure Email Credentials
+Step 2: Configure Email Credentials
 
 Inside the send_email() function, update:
 
-from_email = "your_email@gmail.com"\
+from_email = "your_email@gmail.com"
 password = "your_password"
 
-⚠ Use an App Password for Gmail instead of your real password.
 
-### 3️⃣ Run the Application
+Use:
 
+A valid Gmail account
+
+App password (recommended for security)
+
+Step 3: Run the Application
 streamlit run fuel efficiency.py
 
-------------------------------------------------------------------------
+🔐 Authentication Flow
 
-## 🔐 Authentication System
+Users must register before logging in.
 
--   Users must register before login.
--   Role-based access (Admin / User).
--   Session state maintains login status.
--   Unauthorized access is restricted.
+Role selection is required (Admin/User).
 
-------------------------------------------------------------------------
+Session state maintains login status.
 
-## 🔮 Future Improvements
+Unauthorized access is restricted.
 
--   Password encryption (bcrypt)
--   Product editing and deletion
--   Order status update feature
--   Payment gateway integration
--   Improved UI design
--   Deployment on cloud server
+📷 Application Interface
 
-------------------------------------------------------------------------
+Sidebar navigation for:
 
-## 📂 Project Structure
+Login
 
-fuel efficiency.py\
-farm_goods.db (auto-created)\
+Register
+
+Admin Interface
+
+User Interface
+
+Wide layout configuration for better UI experience.
+
+📌 Future Enhancements
+
+Password hashing for better security
+
+Order status update functionality
+
+Product editing & deletion
+
+Payment gateway integration
+
+Improved UI/UX design
+
+Cloud database deployment
+
+Role-based dashboard customization
+
+⚠ Security Note
+
+Currently:
+
+Passwords are stored in plain text.
+
+Email credentials are hardcoded.
+
+For production deployment:
+
+Use password hashing (bcrypt)
+
+Store credentials using environment variables
+
+Use secure database hosting
+
+📄 Project Structure
+fuel efficiency.py
+farm_goods.db (auto-created)
 README.md
 
-------------------------------------------------------------------------
+👨‍💻 Developed With
 
-## 👨‍💻 Author
-
-Developed as a learning project using Python and Streamlit.
+Python & Streamlit for learning full-stack web application development.
